@@ -32,6 +32,13 @@ body {
     font-weight: 600;
 }
 
+
+.navbar .nav-link:hover {
+    color: #ff6600 !important;
+}
+.navbar .nav-link.active {
+    color: #ff6600 !important;
+}
 /* ===== Hero Section ===== */
 .hero {
     background-color: var(--light-bg);
@@ -230,6 +237,7 @@ body {
 .about-section {
     background-color: var(--lightest-bg);
     padding: 80px 0;
+    height: 100vh;
 }
 
 .about-content {
