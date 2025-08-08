@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Open+Sans:wght@300;700&family=Plus+Jakarta+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">My Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="#home">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#about">About Me</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#portfolio">My Work</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#contact">Contact</a>
+  </li>
+</ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <header id="home" class="hero section-to-observe full-screen">
+        <div class="container fade-in">
+            <h1>Hi, I'm <span class="highlight">Rob Templado</span></h1>
+            <p>A 3rd Year BSCS student from De La Salle Lipa. Come and Explore my work below!</p>
+        </div>
+        <!-- Scroll Down Indicator -->
+        <a href="#portfolio" class="scroll-down-link" aria-label="Scroll to portfolio">
+            <i class="bi bi-chevron-down"></i>
+        </a>
+    </header>
+
+    <!-- ===== About Me Section ===== -->
+<section id="about" class="about-section fade-in">
+    <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <img src="images/robpic.jpg" alt="Your Name" class="about-photo">
+            <div class="about-text">
+                <p>
+                     I’m Robert Patrick D. Templado, a 3rd year BSCS student at De La Salle Lipa. 
+                </p>
+                <p>
+                   A passionate yet frustrated aspiring software developer and web designer, constantly learning and experimenting to turn ideas into clean, functional, and user-friendly digital experiences. I love solving problems, creating intuitive interfaces, and pushing myself to grow with every line of code. When I’m not coding, you’ll find me exploring new tech trends, honing my skills, or dreaming up the next big project.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-5 section-to-observe">
+        <div class="container fade-in">
+            <h2 class="section-title">My Work</h2>
+            <div class="row gy-4">
+                <!-- Project 1 -->
+                <div class="col-lg-4 col-md-6 portfolio-item">
+                    <div class="card h-100">
+                        <div class="card-img-container">
+                            <a href="#" class="card-img-top-link" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showFullImage(this)">
+                                <img class="card-img-top" src="images/project1.png" alt="Skill Exchange Project Image">
+                            </a>
+                        </div>
+                        <div class="card-body p-4">
+                            <h4 class="card-title project-title" onclick="changeBackgroundColor()">Skill Exchange</h4>
+                            <p class="card-text">An app where you can learn and socialize at the same time!</p>
+                            <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#project1Modal">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="col-lg-4 col-md-6 portfolio-item">
+                    <div class="card h-100">
+                       <div class="card-img-container">
+                            <a href="#" class="card-img-top-link" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showFullImage(this)">
+                                <img class="card-img-top" src="images/project2.png" alt="CodeX Project Image">
+                            </a>
+                       </div>
+                        <div class="card-body p-4">
+                            <h4 class="card-title project-title" onclick="changeBackgroundColor()">CodeX</h4>
+                            <p class="card-text">A lightweight, collaborative coding platform for students.</p>
+                            <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#project2Modal">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="col-lg-4 col-md-6 portfolio-item">
+                    <div class="card h-100">
+                        <div class="card-img-container">
+                            <a href="#" class="card-img-top-link" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showFullImage(this)">
+                                <img class="card-img-top" src="images/project3.png" alt="Project Three Image">
+                            </a>
+                        </div>
+                        <div class="card-body p-4">
+                            <h4 class="card-title project-title" onclick="changeBackgroundColor()">Forty31 Coffee</h4>
+                            <p class="card-text">A database-driven website for a local coffee shop.</p>
+                            <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#project3Modal">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="py-5 section-to-observe">
+        <div class="container fade-in">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <form id="contactForm" novalidate>
+                        <div class="mb-4">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="5" placeholder="Your message here..." required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modals -->
+    <!-- Project 1 Modal -->
+    <div class="modal fade" id="project1Modal" tabindex="-1" aria-labelledby="project1ModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="project1ModalLabel">Skill Exchange</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body modal-body-readable">
+                    <p>As part of our Human-Computer Interaction course, my partner Jay and I were tasked with designing a UI/UX project focused on solving a real-world problem through effective interface design. We conceptualized and developed SkillExchange, a mobile application that encourages college students to interact, collaborate, and share knowledge and skills in a dynamic, community-driven environment.</p>
+                    <p>The goal of SkillExchange is to create a platform where students can both offer and seek out help in areas like academics, hobbies, and personal growth — essentially creating a give-and-take system. For example, a student proficient in video editing can teach others while learning photography from someone else. We carefully crafted the user flow, wireframes, and interface with user empathy and accessibility in mind.</p>
+                    <p class="mt-4 text-center">
+                        <a href="https://www.figma.com/proto/DM4t6ZrzxzxmJbmjjsu7zj/Mobile-App--SkillExchange?node-id=69-1921&t=qP49bhI2U6eMGWIG-0&scaling=scale-down&content-scaling=fixed&page-id=3%3A1625&starting-point-node-id=69%3A1921" class="btn-view-project" target="_blank" rel="noopener noreferrer">
+                            View Prototype <i class="bi bi-arrow-right-short"></i>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Project 2 Modal -->
+    <div class="modal fade" id="project2Modal" tabindex="-1" aria-labelledby="project2ModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="project2ModalLabel">CodeX</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body modal-body-readable">
+                    <p>For our final project in Software Engineering, my teammates and I took on the challenge of creating something original and impactful in the field of IoT and software development tools. While exploring existing platforms, we noticed recurring issues—such as heavy interfaces, limited collaboration features, and a lack of student-focused functionalities. From this realization, we conceptualized CodeX, a lightweight, collaborative coding platform designed specifically for students.</p>
+                    <p>Our vision was to develop a tool that not only supports real-time collaboration but also includes modern features tailored to software development learning, such as syntax assistance, version control basics, and easy project sharing. While CodeX is currently documented as a research paper and a Software Requirements Specification (SRS), we're excited about its potential. Now that we're diving into our electives in Game Development, we're planning to build on this foundation and turn CodeX into a fully functional platform in the near future.</p>
+                    <p class="mt-4 text-center">
+                        <a href="https://docs.google.com/document/d/1qBYXOl2eSROhor96GJL_EGLZRTvu1_Gc0Z7AVPB6Z5M/edit?fbclid=IwY2xjawMBlplleHRuA2FlbQIxMQABHtjLPG0DXIS9Pyekkr81vEU3gxMirv9Iw0YJpr29ibOhcvyQpWKmYs3LIXX2_aem_buYCwO2QRaI65EQNAJaIuQ&tab=t.0" class="btn-view-project" target="_blank" rel="noopener noreferrer">
+                            View Documentation <i class="bi bi-arrow-right-short"></i>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Project 3 Modal -->
+    <div class="modal fade" id="project3Modal" tabindex="-1" aria-labelledby="project3ModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="project3ModalLabel">Forty31 Coffee Website</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body modal-body-readable">
+                    <p>For our final project in Information Management, my team and I were assigned to develop a database-driven PHP website based on a company of our choice. We unanimously decided on Forty31, a cozy local coffee shop near our dorm that had become a special place for us — a go-to spot for endless bonding sessions after classes, late-night study breaks, and occasional caffeine-fueled brainstorming.</p>
+                    <p>Our project aimed to create a simple yet functional website for Forty31, complete with features like menu management, inventory tracking, and customer order records, backed by a MySQL database. We focused on building a clean interface and ensuring data was efficiently stored, retrieved, and managed through CRUD operations.</p>
+                    <p class="mt-4 text-center">
+                        <a href="https://www.figma.com/proto/YT17R4oqktwfKLeXN1yaVh/Untitled?node-id=111-130&p=f&t=NRseDSf4zG4W8Fhz-0&scaling=scale-down&content-scaling=fixed&page-id=111%3A2&starting-point-node-id=111%3A307" class="btn-view-project" target="_blank" rel="noopener noreferrer">
+                            View Prototype <i class="bi bi-arrow-right-short"></i>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Image Modal -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content bg-transparent border-0">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title" id="imageModalLabel" style="color: white;"></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0 text-center">
+                    <img src="" id="fullImage" class="img-fluid rounded" alt="Full project image">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scroll to Top Button -->
+    <a href="#" class="scroll-to-top">
+        <i class="bi bi-arrow-up"></i>
+    </a>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Enhanced Contact Form Validation
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const messageInput = document.getElementById('message');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (nameInput.value.trim() === '' || emailInput.value.trim() === '' || messageInput.value.trim() === '') {
+                alert('Please fill out all required fields.');
+                return;
+            }
+
+            if (!emailRegex.test(emailInput.value)) {
+                alert('Please enter a valid email address.');
+                emailInput.focus();
+                return;
+            }
+
+            alert('Thank you for your message!');
+            form.reset();
+        });
+
+        // Background color change on project title click
+        function changeBackgroundColor() {
+            const portfolioSection = document.getElementById('portfolio');
+            // A palette of dark colors that match your theme
+            const darkPalette = ['#1F2937', '#111827', '#0F172A', '#374151'];
+            
+            // Get the current background color to prevent picking the same one
+            const currentRgbColor = window.getComputedStyle(portfolioSection).backgroundColor;
+            
+            let newColor = darkPalette[Math.floor(Math.random() * darkPalette.length)];
+            
+            // This is a simple way to check against hex colors. 
+            // A more robust solution would convert the RGB to hex, but this works well here.
+            // We just ensure we don't pick the default portfolio color again if it's currently active.
+            if (currentRgbColor === 'rgb(31, 41, 55)') { // The RGB for #1F2937
+                 while (newColor === '#1F2937') {
+                    newColor = darkPalette[Math.floor(Math.random() * darkPalette.length)];
+                 }
+            }
+
+            portfolioSection.style.backgroundColor = newColor;
+        }
+
+        // Show full image in a modal
+        function showFullImage(linkElement) {
+            const imgElement = linkElement.querySelector('img');
+            const cardBody = linkElement.closest('.card').querySelector('.card-body');
+            const projectTitle = cardBody.querySelector('.project-title').textContent.trim();
+            const imageSrc = imgElement.src;
+            document.getElementById('fullImage').src = imageSrc;
+            document.getElementById('imageModalLabel').textContent = projectTitle;
+        }
+
+        // Other Scripts on DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Intersection Observer for Navbar Highlighting
+            const sections = document.querySelectorAll('.section-to-observe');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const navObserverOptions = { root: null, rootMargin: '0px', threshold: 0.6 };
+            const navObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const navLink = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+                        navLinks.forEach(link => link.classList.remove('active'));
+                        if (navLink) { navLink.classList.add('active'); }
+                    }
+                });
+            }, navObserverOptions);
+            sections.forEach(section => { navObserver.observe(section); });
+
+            // Intersection Observer for Fade-in Animations
+            const fadeinElements = document.querySelectorAll('.fade-in');
+            const fadeinObserverOptions = { root: null, rootMargin: '0px', threshold: 0.2 };
+            const fadeinObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, fadeinObserverOptions);
+            fadeinElements.forEach(element => { fadeinObserver.observe(element); });
+            
+            // Scroll to Top Button Logic
+            const scrollToTopBtn = document.querySelector('.scroll-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollToTopBtn.classList.add('visible');
+                } else {
+                    scrollToTopBtn.classList.remove('visible');
+                }
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Scroll to top functionality
+            scrollToTopBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+    <script>
+        // Enhanced Contact Form Validation
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const messageInput = document.getElementById('message');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (nameInput.value.trim() === '' || emailInput.value.trim() === '' || messageInput.value.trim() === '') {
+                alert('Please fill out all required fields.');
+                return;
+            }
+
+            if (!emailRegex.test(emailInput.value)) {
+                alert('Please enter a valid email address.');
+                emailInput.focus();
+                return;
+            }
+
+            alert('Thank you for your message!');
+            form.reset();
+        });
+
+        // Background color change on project title click
+        function changeBackgroundColor() {
+            const portfolioSection = document.getElementById('portfolio');
+            // A palette of dark colors that match your theme
+            const darkPalette = ['#1F2937', '#111827', '#0F172A', '#374151'];
+            
+            // Get the current background color to prevent picking the same one
+            const currentRgbColor = window.getComputedStyle(portfolioSection).backgroundColor;
+            
+            let newColor = darkPalette[Math.floor(Math.random() * darkPalette.length)];
+            
+            // This is a simple way to check against hex colors. 
+            // A more robust solution would convert the RGB to hex, but this works well here.
+            // We just ensure we don't pick the default portfolio color again if it's currently active.
+            if (currentRgbColor === 'rgb(31, 41, 55)') { // The RGB for #1F2937
+                 while (newColor === '#1F2937') {
+                    newColor = darkPalette[Math.floor(Math.random() * darkPalette.length)];
+                 }
+            }
+
+            portfolioSection.style.backgroundColor = newColor;
+        }
+
+        // Show full image in a modal
+        function showFullImage(linkElement) {
+            const imgElement = linkElement.querySelector('img');
+            const cardBody = linkElement.closest('.card').querySelector('.card-body');
+            const projectTitle = cardBody.querySelector('.project-title').textContent.trim();
+            const imageSrc = imgElement.src;
+            document.getElementById('fullImage').src = imageSrc;
+            document.getElementById('imageModalLabel').textContent = projectTitle;
+        }
+
+        // Other Scripts on DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector(".full-screen").scrollIntoView();
+        })
+    </script>
+</body>
+</html>
