@@ -1,82 +1,191 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // ===== 1. Intersection Observer for Active Nav Links =====
-    const sections = document.querySelectorAll('section[id]'); // All sections with IDs
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.6 // Trigger when 60% of the section is visible
-    };
+ // Enhanced Contact Form Validation
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Remove 'active' class from all nav links
-                navLinks.forEach(link => link.classList.remove('active'));
-                
-                // Get the corresponding nav link and add 'active' class
-                const id = entry.target.getAttribute('id');
-                const matchingLink = document.querySelector(`.nav-link[href="#${id}"]`);
-                
-                if (matchingLink) {
-                    matchingLink.classList.add('active');
-                }
+            const form = event.target;
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const messageInput = document.getElementById('message');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (nameInput.value.trim() === '' || emailInput.value.trim() === '' || messageInput.value.trim() === '') {
+                alert('Please fill out all required fields.');
+                return;
             }
+
+            if (!emailRegex.test(emailInput.value)) {
+                alert('Please enter a valid email address.');
+                emailInput.focus();
+                return;
+            }
+
+            alert('Thank you for your message!');
+            form.reset();
         });
-    }, observerOptions);
 
-    // Observe all sections
-    sections.forEach(section => observer.observe(section));
+        // Background color change on project title click
+        function changeBackgroundColor() {
+            const portfolioSection = document.getElementById('portfolio');
+            // A palette of dark colors that match your theme
+            const darkPalette = ['#1F2937', '#111827', '#0F172A', '#374151'];
+            
+            // Get the current background color to prevent picking the same one
+            const currentRgbColor = window.getComputedStyle(portfolioSection).backgroundColor;
+            
+            let newColor = darkPalette[Math.floor(Math.random() * darkPalette.length)];
+            
+            // This is a simple way to check against hex colors. 
+            // A more robust solution would convert the RGB to hex, but this works well here.
+            // We just ensure we don't pick the default portfolio color again if it's currently active.
+            if (currentRgbColor === 'rgb(31, 41, 55)') { // The RGB for #1F2937
+                 while (newColor === '#1F2937') {
+                    newColor = darkPalette[Math.floor(Math.random() * darkPalette.length)];
+                 }
+            }
 
-    // ===== 2. Change Portfolio Background on Title Click =====
-    const projectTitles = document.querySelectorAll('.project-title');
-    const portfolioSection = document.getElementById('portfolio');
-    
-    projectTitles.forEach(title => {
-        title.addEventListener('click', function() {
-            const color = this.getAttribute('data-color');
-            portfolioSection.style.backgroundColor = color;
-            portfolioSection.style.transition = 'background-color 0.5s ease';
-        });
-    });
-
-    // ===== 3. Form Submission Handling =====
-    const contactForm = document.getElementById('contactForm');
-    
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        if (!this.checkValidity()) {
-            e.stopPropagation();
-            this.classList.add('was-validated');
-            return;
+            portfolioSection.style.backgroundColor = newColor;
         }
-        
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
-        
-        alert(`Thank you, ${name}! Your message has been received. I'll contact you at ${email} soon.`);
-        
-        this.reset();
-        this.classList.remove('was-validated');
-    });
 
-    // ===== 4. Smooth Scrolling for Navigation Links =====
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
+        // Show full image in a modal
+        function showFullImage(linkElement) {
+            const imgElement = linkElement.querySelector('img');
+            const cardBody = linkElement.closest('.card').querySelector('.card-body');
+            const projectTitle = cardBody.querySelector('.project-title').textContent.trim();
+            const imageSrc = imgElement.src;
+            document.getElementById('fullImage').src = imageSrc;
+            document.getElementById('imageModalLabel').textContent = projectTitle;
+        }
+
+        // Other Scripts on DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Intersection Observer for Navbar Highlighting
+            const sections = document.querySelectorAll('.section-to-observe');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const navObserverOptions = { root: null, rootMargin: '0px', threshold: 0.6 };
+            const navObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const navLink = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+                        navLinks.forEach(link => link.classList.remove('active'));
+                        if (navLink) { navLink.classList.add('active'); }
+                    }
+                });
+            }, navObserverOptions);
+            sections.forEach(section => { navObserver.observe(section); });
+
+            // Intersection Observer for Fade-in Animations
+            const fadeinElements = document.querySelectorAll('.fade-in');
+            const fadeinObserverOptions = { root: null, rootMargin: '0px', threshold: 0.2 };
+            const fadeinObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, fadeinObserverOptions);
+            fadeinElements.forEach(element => { fadeinObserver.observe(element); });
             
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
+            // Scroll to Top Button Logic
+            const scrollToTopBtn = document.querySelector('.scroll-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollToTopBtn.classList.add('visible');
+                } else {
+                    scrollToTopBtn.classList.remove('visible');
+                }
+            });
             
-            if (targetElement) {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Scroll to top functionality
+            scrollToTopBtn.addEventListener('click', function(e) {
+                e.preventDefault();
                 window.scrollTo({
-                    top: targetElement.offsetTop - 70,
+                    top: 0,
                     behavior: 'smooth'
                 });
-            }
+            });
         });
-    });
-});
+ // Enhanced Contact Form Validation
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const messageInput = document.getElementById('message');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (nameInput.value.trim() === '' || emailInput.value.trim() === '' || messageInput.value.trim() === '') {
+                alert('Please fill out all required fields.');
+                return;
+            }
+
+            if (!emailRegex.test(emailInput.value)) {
+                alert('Please enter a valid email address.');
+                emailInput.focus();
+                return;
+            }
+
+            alert('Thank you for your message!');
+            form.reset();
+        });
+
+        // Background color change on project title click
+        function changeBackgroundColor() {
+            const portfolioSection = document.getElementById('portfolio');
+            // A palette of dark colors that match your theme
+            const darkPalette = ['#1F2937', '#111827', '#0F172A', '#374151'];
+            
+            // Get the current background color to prevent picking the same one
+            const currentRgbColor = window.getComputedStyle(portfolioSection).backgroundColor;
+            
+            let newColor = darkPalette[Math.floor(Math.random() * darkPalette.length)];
+            
+            // This is a simple way to check against hex colors. 
+            // A more robust solution would convert the RGB to hex, but this works well here.
+            // We just ensure we don't pick the default portfolio color again if it's currently active.
+            if (currentRgbColor === 'rgb(31, 41, 55)') { // The RGB for #1F2937
+                 while (newColor === '#1F2937') {
+                    newColor = darkPalette[Math.floor(Math.random() * darkPalette.length)];
+                 }
+            }
+
+            portfolioSection.style.backgroundColor = newColor;
+        }
+
+        // Show full image in a modal
+        function showFullImage(linkElement) {
+            const imgElement = linkElement.querySelector('img');
+            const cardBody = linkElement.closest('.card').querySelector('.card-body');
+            const projectTitle = cardBody.querySelector('.project-title').textContent.trim();
+            const imageSrc = imgElement.src;
+            document.getElementById('fullImage').src = imageSrc;
+            document.getElementById('imageModalLabel').textContent = projectTitle;
+        }
+
+        // Other Scripts on DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector(".full-screen").scrollIntoView();
+        })
+
+
+        
